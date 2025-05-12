@@ -35,6 +35,10 @@ def get_encodings(img):
         A 1-D NumPy array representing the image's encoding.
     """
 
+    # Ensure image is in RGB mode (3 channels)
+    if img.mode != 'RGB':
+        img = img.convert('RGB')
+        
     # Convert the image to a NumPy array
     img_array = tf.keras.preprocessing.image.img_to_array(img)
 
